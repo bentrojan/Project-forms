@@ -1,0 +1,45 @@
+<!-- 
+<html>
+<header>
+	<title>A FORM</title>
+</header>
+<body>
+	<form action="/users" method="post">
+		Username: <input accept-charset="UTF-8" type="text" name="user[username]"><br/>
+		Email: <input accept-charset="UTF-8" type="text" name="user[email]"><br/>
+		Password: <input accept-charset="UTF-8" type="text" name="user[password]"><br/>
+		<input type="submit" value="GOGOGOGGOGOOGO">
+		<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+	</form>
+</html> -->
+
+
+<!-- # <%= form_tag("/users", method: "post") do %>
+# 	<%= label_tag(:username, "Username:") %>
+# 	<%= text_field_tag(:username) %>
+# 	<%= label_tag(:email, "Email:") %>
+# 	<%= text_field_tag(:email) %>
+# 	<%= label_tag(:password, "Password:") %>
+# 	<%= password_field_tag(:password) %>
+# 	<%= submit_tag("Create User") %>
+# <% end %> -->
+
+<% if !(@user.errors.empty?) %>
+	<div class="errors"><%= @user.errors.full_messages.each do |m| %>
+		<%= puts m %>
+	<% end %></div>
+<% end %>
+
+<%= form_for @user do |f| %>
+	Username:<%= f.text_field :username, :placeholder => "put name here" %><br/>
+	Email:<%= f.text_field :email, :placeholder => "make email here" %><br/>
+	Password:<%= f.password_field :password, :placeholder => "of making passwords" %><br/>
+	<%= f.submit "Create gogo" %>
+<% end %>
+
+
+
+
+
+
+

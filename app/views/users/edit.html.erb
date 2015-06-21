@@ -1,0 +1,12 @@
+<% if !(@user.errors.empty?) %>
+	<div class="errors"><%= @user.errors.full_messages.each do |m| %>
+		<%= puts m %>
+	<% end %></div>
+<% end %>
+
+<%= form_for @user do |f| %>
+	Username:<%= f.text_field :username, :placeholder => "put name here" %><br/>
+	Email:<%= f.text_field :email, :placeholder => "make email here" %><br/>
+	Password:<%= f.password_field :password, :placeholder => "of making passwords" %><br/>
+	<%= f.submit "Create gogo" %>
+<% end %>
